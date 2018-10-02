@@ -4,7 +4,7 @@
 //
 //  Created by Tarek Abdelrahman on 2018-05-15.
 //  Copyright © 2018 Tarek Abdelrahman. All rights reserved.
-//  Code finished by Lucky
+//
 
 #include <iostream>
 #include <tic-tac-toe/playMove.h>
@@ -83,15 +83,16 @@ void playMove(int board[3][3], int row, int col, bool& turn, bool& validMove, bo
         if (turn && validMove)
         {
             board [row][col] = X;
+            turn=!turn;
         }
         else if (!turn && validMove)
         {
             board [row][col] = O;
+            turn=!turn;
         }
         if (!moveAvail (board, row, col))
             gameOver = true;
     }
-    turn = !turn;
         
     if(gameOver)
     {
@@ -111,13 +112,13 @@ void playMove(int board[3][3], int row, int col, bool& turn, bool& validMove, bo
                 winCode = 5;
             else winCode = 6;
         }
-        else if ((row == col) && (board[0][0] == board [1][1] && board[0][0] == board[2][2]))
-        {
-            winCode = 7;
-        }
         else if ((row + col == 2) && (board[0][2] == board[1][1] && board[0][2] == board [2][0]))
         {
             winCode = 8;
+        }
+        else if ((row == col) && (board[0][0] == board [1][1] && board[0][0] == board[2][2]))
+        {
+            winCode = 7;
         }
         else winCode = 0;
     }
