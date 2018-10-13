@@ -539,6 +539,7 @@ int main() {
                             {
                                 delete shapesArray[j];
                                 shapesArray[j] = NULL;
+                                shapeCount = 0;
                             }
                         }
                         else
@@ -550,6 +551,7 @@ int main() {
                                     cout << "Deleted shape " << shapesArray[j]->getName() << endl;
                                     delete shapesArray[j];
                                     shapesArray[j] = NULL;
+                                    shapeCount--;
                                     break;
                                 }
                             }
